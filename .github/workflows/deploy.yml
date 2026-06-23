@@ -34,7 +34,8 @@ jobs:
           python-version: "3.12"
       - run: pip install "mkdocs-material>=9.5,<10"
       - name: Point site_url at the root domain
-        run: sed -i 's#^site_url:.*#site_url: https://razkevich.github.io/#' mkdocs.yml
+        run: |
+          sed -i 's#^site_url:.*#site_url: https://razkevich.github.io/#' mkdocs.yml
       - run: mkdocs build --strict
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
